@@ -20,7 +20,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { HomeComponent } from './home/home.component';
 import { CsnModelCardComponent } from './home/csn-model-card/csn-model-card.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
 
 @NgModule({
@@ -49,7 +49,8 @@ import { AboutComponent } from './about/about.component';
     MatSidenavModule,
     MatListModule,
 
-    MarkdownModule.forRoot(),
+    HttpClientModule,
+    MarkdownModule.forRoot({ loader: HttpClient }),
   ],
   providers: [],
   bootstrap: [AppComponent]
