@@ -1,0 +1,28 @@
+<mat-card class="dashboard-card">
+  <mat-card-header>
+    <mat-card-title>
+      {{ model.name }}
+      <!-- <button
+        mat-icon-button
+        class="more-button"
+        [matMenuTriggerFor]="menu"
+        aria-label="Toggle menu"
+      >
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" xPosition="before">
+        <button mat-menu-item>Expand</button>
+        <button mat-menu-item>Remove</button>
+      </mat-menu> -->
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="dashboard-card-content">
+    <div>Nombre de pages: {{ this.pages }}</div>
+    <div>Nombre de page métiers: {{ this.pageMetier }}</div>
+    <div>Nombre de widgets: {{ this.widgets }}</div>
+    <div>Nombre de custom widgets: {{ this.customs }}</div>
+  </mat-card-content>
+  <mat-card-actions class="dashboard-card-actions">
+    <button mat-button>OPEN</button>
+  </mat-card-actions>
+</mat-card>
