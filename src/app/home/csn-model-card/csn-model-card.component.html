@@ -23,6 +23,8 @@
     <div>Nombre de custom widgets: {{ this.customs }}</div>
   </mat-card-content>
   <mat-card-actions class="dashboard-card-actions">
-    <button mat-button>OPEN</button>
+    <button mat-button (click)='navigateToModel()'>
+      OPEN
+    </button>
   </mat-card-actions>
 </mat-card>

@@ -18,17 +18,20 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatTabsModule } from '@angular/material/tabs';
 import { HomeComponent } from './home/home.component';
 import { CsnModelCardComponent } from './home/csn-model-card/csn-model-card.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
+import { ModelHomeComponent } from './model-home/model-home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CsnModelCardComponent,
-    AboutComponent
+    AboutComponent,
+    ModelHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +40,7 @@ import { AboutComponent } from './about/about.component';
     BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule,
+    MatTabsModule,
     MatSelectModule,
     MatRadioModule,
     MatCardModule,

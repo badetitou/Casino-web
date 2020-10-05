@@ -1,10 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ModelDataTransmissionService } from 'src/app/model-data-transmission.service';
 import { ModelService } from '../services/model.service';
 
 @Component({
   selector: 'csn-model-card',
   templateUrl: './csn-model-card.component.html',
-  styleUrls: ['./csn-model-card.component.scss']
+  styleUrls: ['./csn-model-card.component.scss'],
+  providers: [ ModelDataTransmissionService ]
 })
 export class CsnModelCardComponent implements OnInit {
 
@@ -16,7 +19,10 @@ export class CsnModelCardComponent implements OnInit {
   widgets = 0;
   customs = 0;
 
-  constructor( private modelService: ModelService ) {
+  constructor(
+    private modelService: ModelService,
+    private router: Router,
+    private modelDataTransmissionService: ModelDataTransmissionService ) {
   }
 
   ngOnInit() {
@@ -43,6 +49,11 @@ export class CsnModelCardComponent implements OnInit {
       error: (err) => console.log(err),
       complete: () => console.log('Done for custom widgets')
     });
+  }
+
+  navigateToModel(){
+    this.modelDataTransmissionService.sendModel(this.model);
+    this.router.navigate(['model']);
   }
 
 }
