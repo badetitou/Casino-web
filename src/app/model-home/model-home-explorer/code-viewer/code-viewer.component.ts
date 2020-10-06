@@ -15,6 +15,7 @@ export class CodeViewerComponent implements OnInit, OnChanges {
   @Input()
   public model: any;
 
+  protected inFile = '';
   protected sourceCode = '';
 
   constructor(
@@ -31,7 +32,10 @@ export class CodeViewerComponent implements OnInit, OnChanges {
 
   updateSourceCode() {
     this.csnModelService.source(this.model.id, this.casinoEntity['fm.id']).subscribe({
-      next: (value) => this.sourceCode = value.body,
+      next: (value) => {
+        this.sourceCode = value.body;
+        this.inFile = value.file;
+      },
       error: (err) => console.log(err),
       complete: () => this.ref.detectChanges()
     });
