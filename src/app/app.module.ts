@@ -32,6 +32,10 @@ import { TreeExplorerComponent } from './model-home/model-home-explorer/tree-exp
 import { CodeViewerComponent } from './model-home/model-home-explorer/code-viewer/code-viewer.component';
 import { AttributeViewerComponent } from './model-home/model-home-explorer/attribute-viewer/attribute-viewer.component';
 import { MatTableModule } from '@angular/material/table';
+import { ApiElementComponent } from './about/api-element/api-element.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { ApiGroupComponent } from './about/api-group/api-group.component';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -44,7 +48,9 @@ import { MatTableModule } from '@angular/material/table';
     ModelHomeExplorerComponent,
     TreeExplorerComponent,
     CodeViewerComponent,
-    AttributeViewerComponent
+    AttributeViewerComponent,
+    ApiElementComponent,
+    ApiGroupComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +73,8 @@ import { MatTableModule } from '@angular/material/table';
     MatListModule,
     MatProgressBarModule,
     MatTableModule,
+    MatExpansionModule,
+    MatChipsModule,
 
     HttpClientModule,
     MarkdownModule.forRoot({ loader: HttpClient }),

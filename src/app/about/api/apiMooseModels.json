@@ -1,0 +1,12 @@
+[
+  {
+    "path": "/moose/v1/models",
+    "description": "Returns all the models installed in the Moose Image",
+    "method": "GET",
+    "version": "v1",
+    "produces": "application/json",
+    "pathParameters": [],
+    "queryParameters": [],
+    "return": "[\n  {\n    \"name\": \"Omaje\",\n    \"id\": 1\n  }\n]"
+  }
+]
