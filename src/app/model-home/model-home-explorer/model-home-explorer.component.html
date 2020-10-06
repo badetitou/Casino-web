@@ -1,2 +1,27 @@
-
-<csn-tree-explorer [model]='this.model' (itemSelected)='inspectItem($event)'></csn-tree-explorer>
+<mat-grid-list cols="2" rowHeight="2:1" [gutterSize]="'10px'">
+  <mat-grid-tile [colspan]="1" [rowspan]="3">
+    <csn-tree-explorer
+      class="container"
+      [model]="this.model"
+      (itemSelected)="inspectItem($event)"
+    ></csn-tree-explorer>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1" [rowspan]="1">
+    <csn-code-viewer
+      class="container"
+      [casinoEntity]="this.selectedEntity"
+      [model]="this.model"
+    ></csn-code-viewer>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1" [rowspan]="1">
+    <csn-attribute-viewer
+      class="container"
+      [casinoEntity]="this.selectedEntity"
+      [model]="this.model"
+    >
+    </csn-attribute-viewer>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1" [rowspan]="1">
+    <div class="container">WIP</div>
+  </mat-grid-tile>
+</mat-grid-list>

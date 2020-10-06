@@ -12,6 +12,8 @@ export class ModelHomeExplorerComponent implements OnInit {
   @Input()
   public model;
 
+  selectedEntity: any;
+
   constructor(private modelService: ModelService) {
    }
 
@@ -19,7 +21,8 @@ export class ModelHomeExplorerComponent implements OnInit {
   }
 
   protected inspectItem(event) {
-    console.log(event);
+    console.log('change selectedEntity');
+    this.selectedEntity = event;
   }
 
 }
