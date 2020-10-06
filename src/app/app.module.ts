@@ -24,6 +24,11 @@ import { CsnModelCardComponent } from './home/csn-model-card/csn-model-card.comp
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
 import { ModelHomeComponent } from './model-home/model-home.component';
+import { ModelHomeOverviewComponent } from './model-home/model-home-overview/model-home-overview.component';
+import { ModelHomeExplorerComponent } from './model-home/model-home-explorer/model-home-explorer.component';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { TreeExplorerComponent } from './model-home/model-home-explorer/tree-explorer/tree-explorer.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +36,10 @@ import { ModelHomeComponent } from './model-home/model-home.component';
     HomeComponent,
     CsnModelCardComponent,
     AboutComponent,
-    ModelHomeComponent
+    ModelHomeComponent,
+    ModelHomeOverviewComponent,
+    ModelHomeExplorerComponent,
+    TreeExplorerComponent
   ],
   imports: [
     BrowserModule,
@@ -52,9 +60,11 @@ import { ModelHomeComponent } from './model-home/model-home.component';
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
+    MatProgressBarModule,
 
     HttpClientModule,
     MarkdownModule.forRoot({ loader: HttpClient }),
+    MatTreeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

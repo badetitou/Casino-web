@@ -1,13 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModelDataTransmissionService } from 'src/app/model-data-transmission.service';
-import { ModelService } from '../services/model.service';
+import { ModelService } from '../../services/model.service';
 
 @Component({
   selector: 'csn-model-card',
   templateUrl: './csn-model-card.component.html',
-  styleUrls: ['./csn-model-card.component.scss'],
-  providers: [ ModelDataTransmissionService ]
+  styleUrls: ['./csn-model-card.component.scss']
 })
 export class CsnModelCardComponent implements OnInit {
 
@@ -21,8 +19,7 @@ export class CsnModelCardComponent implements OnInit {
 
   constructor(
     private modelService: ModelService,
-    private router: Router,
-    private modelDataTransmissionService: ModelDataTransmissionService ) {
+    private router: Router) {
   }
 
   ngOnInit() {
@@ -51,9 +48,8 @@ export class CsnModelCardComponent implements OnInit {
     });
   }
 
-  navigateToModel(){
-    this.modelDataTransmissionService.sendModel(this.model);
-    this.router.navigate(['model']);
+  protected navigateToModel() {
+    this.router.navigate(['/model'], { state: { id: this.model.id, name: this.model.name } });
   }
 
 }

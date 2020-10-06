@@ -16,4 +16,12 @@ export class ModelService {
     return this.http.get<any>('/moose/v1/model/' + modelId + '/subTypesOf?type=' + type).pipe(first());
   }
 
+  public entity(modelId: number, entityId: string): Observable<any> {
+    return this.http.get<any>('/moose/v1/model/' + modelId + '/entity/' + entityId).pipe(first());
+  }
+
+  public childrenOf(modelId: number, entityId: string): Observable<any> {
+    return this.http.get<any>('/moose/v1/model/' + modelId + '/entity/' + entityId + '/children').pipe(first());
+  }
+
 }

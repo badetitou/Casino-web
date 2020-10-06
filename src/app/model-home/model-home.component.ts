@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { ModelDataTransmissionService } from '../model-data-transmission.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'csn-model-home',
@@ -10,19 +9,15 @@ import { ModelDataTransmissionService } from '../model-data-transmission.service
 export class ModelHomeComponent implements OnInit {
 
   protected model;
+  state$: any;
 
   constructor(
-      private route: ActivatedRoute,
-      private modelDateTransmission: ModelDataTransmissionService
-    ) {
-      this.modelDateTransmission.modelToShow$.subscribe(
-        model => {
-          console.log(model);
-          this.model = model;
-        });
-    }
+    private location: Location,
+  ) {
+  }
 
   ngOnInit() {
+    this.model = this.location.getState();
   }
 
 }
