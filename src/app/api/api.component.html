@@ -1,0 +1,30 @@
+<div class="about-container">
+    <markdown ngPreserveWhitespaces>
+  
+  # API
+  
+  Ce site web est un viewer permettant de manipuler et d'expérimenter l'API REST de Casino.
+  Nous noterons que l'API de Casino est une extension de l'API de Moose.
+  
+  ## Moose API
+  
+  ### Moose Models Service
+  
+  </markdown>
+  <csn-api-group [apiList]="this.apiMooseModels"></csn-api-group>
+  <markdown ngPreserveWhitespaces>
+  
+  ### Moose Model Service
+  
+  </markdown>
+  <csn-api-group [apiList]="this.apiMooseModel"></csn-api-group>
+  <markdown ngPreserveWhitespaces>
+  
+  ## Casino API
+  
+  ### Casino Model Service
+  </markdown>
+  <csn-api-group [apiList]="this.apiCasinoModel"></csn-api-group>
+  
+  </div>
+  

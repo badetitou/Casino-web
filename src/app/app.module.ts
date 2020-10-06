@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MarkdownModule } from 'ngx-markdown';
+import { MarkdownModule, MarkedOptions, MarkedRenderer } from 'ngx-markdown';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,10 +32,28 @@ import { TreeExplorerComponent } from './model-home/model-home-explorer/tree-exp
 import { CodeViewerComponent } from './model-home/model-home-explorer/code-viewer/code-viewer.component';
 import { AttributeViewerComponent } from './model-home/model-home-explorer/attribute-viewer/attribute-viewer.component';
 import { MatTableModule } from '@angular/material/table';
-import { ApiElementComponent } from './about/api-element/api-element.component';
+import { ApiElementComponent } from './api/api-element/api-element.component';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { ApiGroupComponent } from './about/api-group/api-group.component';
+import { ApiGroupComponent } from './api/api-group/api-group.component';
 import { MatChipsModule } from '@angular/material/chips';
+import { ApiComponent } from './api/api.component';
+
+export function markedOptionsFactory(): MarkedOptions {
+  const renderer = new MarkedRenderer();
+
+  renderer.heading = (text: string, level: number) => {
+    return '<h' + level + ' class="mat-h' + level + '">' + text + '</h' + level + '>';
+  };
+
+  return {
+    renderer,
+    gfm: true,
+    breaks: false,
+    pedantic: false,
+    smartLists: true,
+    smartypants: false,
+  }
+}
 
 @NgModule({
   declarations: [
@@ -50,7 +68,8 @@ import { MatChipsModule } from '@angular/material/chips';
     CodeViewerComponent,
     AttributeViewerComponent,
     ApiElementComponent,
-    ApiGroupComponent
+    ApiGroupComponent,
+    ApiComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +96,14 @@ import { MatChipsModule } from '@angular/material/chips';
     MatChipsModule,
 
     HttpClientModule,
-    MarkdownModule.forRoot({ loader: HttpClient }),
+    MarkdownModule.forRoot({
+      loader: HttpClient,
+      markedOptions: {
+        provide: MarkedOptions,
+        useFactory: markedOptionsFactory,
+      }
+    
+    }),
     MatTreeModule,
   ],
   providers: [],

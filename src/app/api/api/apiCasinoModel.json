@@ -1,0 +1,48 @@
+[
+  {
+    "path": "/moose/v1/csn-model/<modelID>/entity/<entityID>/attributes",
+    "description": "Returns the attributes of the entity",
+    "method": "GET",
+    "version": "v1",
+    "produces": "application/json",
+    "pathParameters": [
+      {
+        "name": "modelID",
+        "required": true,
+        "type": "int",
+        "description": "The id of the installed moose model"
+      },
+      {
+        "name": "entityID",
+        "required": true,
+        "type": "int",
+        "description": "The id of the selected entity"
+      }
+    ],
+    "queryParameters": [],
+    "return": "[\n  {\n   \"key\":\"aKey\",\n   \"value\":\"attributeValue\"\n  },{\n   \"key\":\"aKey\",\n   \"value\":\"attributeValue\"\n  }\n]"
+  },
+  {
+    "path": "/moose/v1/csn-model/<modelID>/entity/<entityID>/source",
+    "description": "Returns the source text and the filename of the extracted entity",
+    "method": "GET",
+    "version": "v1",
+    "produces": "application/json",
+    "pathParameters": [
+      {
+        "name": "modelID",
+        "required": true,
+        "type": "int",
+        "description": "The id of the installed moose model"
+      },
+      {
+        "name": "entityID",
+        "required": true,
+        "type": "int",
+        "description": "The id of the selected entity"
+      }
+    ],
+    "queryParameters": [],
+    "return": "{\n   \"body\":\"the source code\",\n   \"file\":\"the file path (relative to the model extraction\"\n}"
+  }
+]

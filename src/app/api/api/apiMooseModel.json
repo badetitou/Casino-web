@@ -1,0 +1,113 @@
+[
+  {
+    "path": "/moose/v1/model/<modelID>/entities",
+    "description": "Returns all the entities of the model",
+    "method": "GET",
+    "version": "v1",
+    "produces": "application/json",
+    "pathParameters": [
+      {
+        "name": "modelID",
+        "required": true,
+        "type": "int",
+        "description": "The id of the installed moose model"
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "page",
+        "required": false,
+        "type": "int",
+        "description": "The number of the displayed page"
+      },
+      {
+        "name": "numberOfItems",
+        "required": false,
+        "type": "int",
+        "description": "The number of the items send by page"
+      }
+    ],
+    "return": "TODO"
+  },
+  {
+    "path": "/moose/v1/model/<modelID>/subTypesOf?type=TheType",
+    "description": "Returns all the entities of the model of the specified type",
+    "method": "GET",
+    "version": "v1",
+    "produces": "application/json",
+    "pathParameters": [
+      {
+        "name": "modelID",
+        "required": true,
+        "type": "int",
+        "description": "The id of the installed moose model"
+      }
+    ],
+    "queryParameters": [
+      {
+        "name": "type",
+        "required": true,
+        "type": "string",
+        "description": "The type searched in the model"
+      },{
+        "name": "page",
+        "required": false,
+        "type": "int",
+        "description": "The number of the displayed page"
+      },
+      {
+        "name": "numberOfItems",
+        "required": false,
+        "type": "int",
+        "description": "The number of the items send by page"
+      }
+    ],
+    "return": "TODO"
+  },
+  {
+    "path": "/moose/v1/model/<modelID>/entity/<entityId>/children",
+    "description": "Returns the children of the selected entity",
+    "method": "GET",
+    "version": "v1",
+    "produces": "application/json",
+    "pathParameters": [
+      {
+        "name": "modelID",
+        "required": true,
+        "type": "int",
+        "description": "The id of the installed moose model"
+      },
+      {
+        "name": "entityID",
+        "required": true,
+        "type": "int",
+        "description": "The id (mooseID) of the selected entity"
+      }
+    ],
+    "queryParameters": [],
+    "return": "TODO"
+  },
+  {
+    "path": "/moose/v1/model/<modelID>/entity/<entityId>",
+    "description": "Returns the entity (with a max depth of 3)",
+    "method": "GET",
+    "version": "v1",
+    "produces": "application/json",
+    "pathParameters": [
+      {
+        "name": "modelID",
+        "required": true,
+        "type": "int",
+        "description": "The id of the installed moose model"
+      },
+      {
+        "name": "entityID",
+        "required": true,
+        "type": "int",
+        "description": "The id (mooseID) of the selected entity"
+      }
+    ],
+    "queryParameters": [],
+    "return": "TODO"
+  }
+]
