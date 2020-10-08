@@ -12,6 +12,10 @@ export class ModelService {
     private http: HttpClient,
   ) { }
 
+  public modelInfo(modelId: number): Observable<any> {
+    return this.http.get<any>('/moose/v1/model/' + modelId).pipe(first());
+  }
+
   public subTypesOf(modelId: number, type: string): Observable<any> {
     return this.http.get<any>('/moose/v1/model/' + modelId + '/subTypesOf?type=' + type).pipe(first());
   }

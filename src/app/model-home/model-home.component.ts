@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
+import {ActivatedRoute} from '@angular/router';
+import { ModelService } from '../services/model.service';
 
 @Component({
   selector: 'csn-model-home',
@@ -12,12 +13,17 @@ export class ModelHomeComponent implements OnInit {
   state$: any;
 
   constructor(
-    private location: Location,
+    private route: ActivatedRoute,
+    private modelService: ModelService,
   ) {
   }
 
   ngOnInit() {
-    this.model = this.location.getState();
+    this.modelService.modelInfo(+this.route.snapshot.paramMap.get('id')).subscribe({
+      next: (model) => this.model = model,
+      error: (err) => console.log(err),
+      complete: () => console.log('Model retrieved')
+    });
   }
 
 }

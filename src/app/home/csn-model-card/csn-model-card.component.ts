@@ -49,7 +49,7 @@ export class CsnModelCardComponent implements OnInit {
   }
 
   protected navigateToModel() {
-    this.router.navigate(['/model'], { state: { id: this.model.id, name: this.model.name } });
+    this.router.navigate(['/model/', this.model.id], { state: { id: this.model.id, name: this.model.name } });
   }
 
 }
