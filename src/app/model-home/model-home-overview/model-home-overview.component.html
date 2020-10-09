@@ -6,7 +6,11 @@
         <mat-card-header>
           <mat-card-title> UI </mat-card-title>
         </mat-card-header>
-        <mat-card-content> </mat-card-content>
+        <mat-card-content>
+          <span class="big-number">
+            {{ this.modelSummary.numberOfWidgets }}
+          </span>
+        </mat-card-content>
       </mat-card>
     </mat-grid-tile>
 
@@ -14,9 +18,13 @@
     <mat-grid-tile [colspan]="1" [rowspan]="1">
       <mat-card class="container">
         <mat-card-header>
-          <mat-card-title> Behavioral </mat-card-title>
+          <mat-card-title> Actions </mat-card-title>
         </mat-card-header>
-        <mat-card-content> </mat-card-content>
+        <mat-card-content>
+          <span class="big-number">
+            {{ this.modelSummary.numberOfActions }}
+          </span>
+        </mat-card-content>
       </mat-card>
     </mat-grid-tile>
 
@@ -26,7 +34,11 @@
         <mat-card-header>
           <mat-card-title> Services </mat-card-title>
         </mat-card-header>
-        <mat-card-content> </mat-card-content>
+        <mat-card-content>
+          <span class="big-number">
+            {{ this.modelSummary.numberOfServicesEntities }}
+          </span>
+        </mat-card-content>
       </mat-card>
     </mat-grid-tile>
 
@@ -36,7 +48,11 @@
         <mat-card-header>
           <mat-card-title> DTO </mat-card-title>
         </mat-card-header>
-        <mat-card-content> </mat-card-content>
+        <mat-card-content>
+          <span class="big-number">
+            {{ this.modelSummary.numberOfBusinessEntities }}
+          </span>
+        </mat-card-content>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import APIMooseModelsJSON from './api/apiMooseModels.json';
 import APIMooseModelJSON from './api/apiMooseModel.json';
 import APICasinoModelJSON from './api/apiCasinoModel.json';
+import { ToolbarService } from '../toolbar.service';
 
 @Component({
   selector: 'csn-api',
@@ -14,9 +15,12 @@ export class ApiComponent implements OnInit {
   protected apiMooseModel = APIMooseModelJSON;
   protected apiCasinoModel = APICasinoModelJSON;
 
-  constructor() { }
+  constructor(
+    private toolbarService: ToolbarService,
+  ) { }
 
   ngOnInit() {
+    this.toolbarService.changeTitle('API');
   }
 
 }

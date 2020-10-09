@@ -20,4 +20,8 @@ export class CSNModelService {
     return this.http.get<any>('/moose/v1/csn-model/' + modelId + '/entity/' + entityId + '/attributes').pipe(first());
   }
 
+  public summary(modelId: number): Observable<any> {
+    return this.http.get<any>('/moose/v1/csn-model/' + modelId).pipe(first());
+  }
+
 }

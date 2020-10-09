@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToolbarService } from '../toolbar.service';
 
 
 @Component({
@@ -8,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private toolbarService: ToolbarService,
+  ) { }
 
   ngOnInit() {
+    this.toolbarService.changeTitle('About');
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ModelService } from '../services/model.service';
+import { ToolbarService } from '../toolbar.service';
 
 @Component({
   selector: 'csn-model-home',
@@ -15,12 +16,16 @@ export class ModelHomeComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private modelService: ModelService,
+    private toolbarService: ToolbarService,
   ) {
   }
 
   ngOnInit() {
     this.modelService.modelInfo(+this.route.snapshot.paramMap.get('id')).subscribe({
-      next: (model) => this.model = model,
+      next: (model) => {
+        this.model = model;
+        this.toolbarService.changeTitle(model.name);
+      },
       error: (err) => console.log(err),
       complete: () => console.log('Model retrieved')
     });

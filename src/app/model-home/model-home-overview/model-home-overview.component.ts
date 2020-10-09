@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CSNModelService } from 'src/app/services/csn-model.service';
 
 @Component({
   selector: 'csn-model-home-overview',
@@ -10,9 +11,23 @@ export class ModelHomeOverviewComponent implements OnInit {
   @Input()
   public model;
 
-  constructor() { }
+  protected modelSummary = {
+    numberOfWidgets: 'wait',
+    numberOfBusinessEntities: 'wait',
+    numberOfServicesEntities: 'wait',
+    numberOfActions: 'wait'
+  }
+
+  constructor(
+    private csnModelService: CSNModelService
+  ) { }
 
   ngOnInit() {
+    this.csnModelService.summary(this.model.id).subscribe({
+      next: (summary) => this.modelSummary = summary,
+      error: (err) => console.log(err),
+      complete: () => console.log('Retrieve summary')
+    });
   }
 
 }

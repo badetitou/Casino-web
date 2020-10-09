@@ -1,8 +1,21 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-card-content {
+  margin: auto;
+  display: contents;
+  .big-number {
+    font-size: 10vw;
+  }
+}
+
+.mat-card-title {
+  font-size: 4vw;
 }

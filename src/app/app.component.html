@@ -20,7 +20,8 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Casino</span>
+      <span> 
+        Casino &mdash; {{(activeMenuItem$ | async)?.title}} </span>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
