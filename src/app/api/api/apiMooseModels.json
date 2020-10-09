@@ -7,6 +7,11 @@
     "produces": "application/json",
     "pathParameters": [],
     "queryParameters": [],
-    "return": "[\n  {\n    \"name\": \"Omaje\",\n    \"id\": 1\n  }\n]"
+    "return": [
+      {
+        "name": "Omaje",
+        "id": 1
+      }
+    ]
   }
 ]

@@ -1,5 +1,27 @@
 [
   {
+    "path": "/moose/v1/csn-model/<modelID>",
+    "description": "Summarize the model",
+    "method": "GET",
+    "version": "v1",
+    "produces": "application/json",
+    "pathParameters": [
+      {
+        "name": "modelID",
+        "required": true,
+        "type": "int",
+        "description": "The id of the installed moose model"
+      }
+    ],
+    "queryParameters": [],
+    "return": {
+      "numberOfWidgets": "4000",
+      "numberOfBusinessEntities": "3250",
+      "numberOfServicesEntities": "75",
+      "numberOfActions": "35"
+    }
+  },
+  {
     "path": "/moose/v1/csn-model/<modelID>/entity/<entityID>/attributes",
     "description": "Returns the attributes of the entity",
     "method": "GET",
@@ -20,7 +42,16 @@
       }
     ],
     "queryParameters": [],
-    "return": "[\n  {\n   \"key\":\"aKey\",\n   \"value\":\"attributeValue\"\n  },{\n   \"key\":\"aKey\",\n   \"value\":\"attributeValue\"\n  }\n]"
+    "return": [
+      {
+        "key": "aKey",
+        "value": "attributeValue"
+      },
+      {
+        "key": "aKey",
+        "value": "attributeValue"
+      }
+    ]
   },
   {
     "path": "/moose/v1/csn-model/<modelID>/entity/<entityID>/source",
@@ -43,6 +74,9 @@
       }
     ],
     "queryParameters": [],
-    "return": "{\n   \"body\":\"the source code\",\n   \"file\":\"the file path (relative to the model extraction\"\n}"
+    "return": {
+      "body": "the source code",
+      "file": "the file path (relative to the model extraction"
+    }
   }
 ]
