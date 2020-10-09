@@ -25,7 +25,7 @@ export class ToolbarService {
     this.activeMenuItem$.next({
       title: t
     });
-    this.titleService.setTitle('Casino — ' + t);
+    this.titleService.setTitle(t + ' - Casino');
   }
 
 }

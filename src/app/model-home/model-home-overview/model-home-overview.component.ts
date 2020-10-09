@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { CSNModelService } from 'src/app/services/csn-model.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { CSNModelService } from 'src/app/services/csn-model.service';
   templateUrl: './model-home-overview.component.html',
   styleUrls: ['./model-home-overview.component.scss']
 })
-export class ModelHomeOverviewComponent implements OnInit {
+export class ModelHomeOverviewComponent implements OnChanges {
 
   @Input()
   public model;
@@ -22,7 +22,7 @@ export class ModelHomeOverviewComponent implements OnInit {
     private csnModelService: CSNModelService
   ) { }
 
-  ngOnInit() {
+  ngOnChanges() {
     this.csnModelService.summary(this.model.id).subscribe({
       next: (summary) => this.modelSummary = summary,
       error: (err) => console.log(err),
