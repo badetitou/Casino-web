@@ -15,8 +15,10 @@ export class ModelHomeOverviewComponent implements OnChanges {
     numberOfWidgets: 'wait',
     numberOfBusinessEntities: 'wait',
     numberOfServicesEntities: 'wait',
-    numberOfActions: 'wait'
-  }
+    numberOfActions: 'wait',
+    numberOfAttributes: 'wait',
+    numberOfLayouts: 'wait'
+  };
 
   constructor(
     private csnModelService: CSNModelService

@@ -1,10 +1,10 @@
 <div class="grid-container">
-  <mat-grid-list cols="2" rowHeight="350px" [gutterSize]="'10px'">
-    <!-- UI -->
+  <mat-grid-list cols="3" rowHeight="350px" [gutterSize]="'10px'">
+    <!-- Widgets -->
     <mat-grid-tile [colspan]="1" [rowspan]="1">
       <mat-card class="container">
         <mat-card-header>
-          <mat-card-title> UI </mat-card-title>
+          <mat-card-title> Widgets </mat-card-title>
         </mat-card-header>
         <mat-card-content>
           <span class="big-number">
@@ -13,6 +13,34 @@
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
+
+    <!-- Attributes -->
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <mat-card class="container">
+        <mat-card-header>
+          <mat-card-title> Attributes </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <span class="big-number">
+            {{ this.modelSummary.numberOfAttributes }}
+          </span>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+        <!-- Layout -->
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-card class="container">
+            <mat-card-header>
+              <mat-card-title> Layouts </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <span class="big-number">
+                {{ this.modelSummary.numberOfLayouts }}
+              </span>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
 
     <!-- Behavioral -->
     <mat-grid-tile [colspan]="1" [rowspan]="1">
