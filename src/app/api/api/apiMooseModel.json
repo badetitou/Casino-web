@@ -62,7 +62,37 @@
         "description": "The number of the items send by page"
       }
     ],
-    "return": "TODO"
+    "return": {
+      "data": [
+        {
+          "@id": 0,
+          "fm.id": 33256,
+          "fm.type": "Casino-Model.Page",
+          "subtitle": "phaseSubtitle",
+          "title": "Phase Name",
+          "businessPage": {
+            "@id": 1,
+            "fm.id": 33257,
+            "fm.type": "Casino-Model.BusinessPage",
+            "pageContainer": 0
+          }
+        },
+        {
+          "@id": 3,
+          "fm.id": 33286,
+          "fm.type": "Casino-Model.Page",
+          "subtitle": "Another phase",
+          "title": "Another Phase Name",
+          "businessPage": {
+            "@id": 4,
+            "fm.id": 33257,
+            "fm.type": "Casino-Model.BusinessPage",
+            "pageContainer": 3
+          }
+        }
+      ],
+      "size": 256
+    }
   },
   {
     "path": "/moose/v1/model/<modelID>/entity/<entityId>/children",
