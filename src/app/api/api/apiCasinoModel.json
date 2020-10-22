@@ -15,10 +15,12 @@
     ],
     "queryParameters": [],
     "return": {
-      "numberOfWidgets": "4000",
-      "numberOfBusinessEntities": "3250",
-      "numberOfServicesEntities": "75",
-      "numberOfActions": "35"
+      "numberOfWidgets": 4000,
+      "numberOfBusinessEntities": 3250,
+      "numberOfServicesEntities": 75,
+      "numberOfActions": 35,
+      "numberOfLayouts": 7319,
+      "numberOfAttributes": 458924
     }
   },
   {

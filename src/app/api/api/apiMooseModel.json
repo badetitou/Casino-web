@@ -49,7 +49,8 @@
         "required": true,
         "type": "string",
         "description": "The type searched in the model"
-      },{
+      },
+      {
         "name": "page",
         "required": false,
         "type": "int",
@@ -115,7 +116,73 @@
       }
     ],
     "queryParameters": [],
-    "return": "TODO"
+    "return": [
+      {
+        "@id": 0,
+        "fm.id": 3356501,
+        "fm.type": "Casino-Model.BusinessPage",
+        "name": "PageMetierAgentAvecRubArretees",
+        "title": "pageTitle",
+        "pageContainer": {
+          "@id": 1,
+          "fm.id": 3355112,
+          "fm.type": "Casino-Model.Page",
+          "subtitle": "Préparation de la paie – Listes des agents avec rubriques arrêtées",
+          "realClassName": "fr::bl::client::grh::pa::pp::PhaseAgentAvecRubArretees",
+          "name": "EPA_AGRUBA",
+          "title": "Agents rubriques arrêtées",
+          "codeValue": "EPA_AGRUBA",
+          "codePhase": "PHASE_PAIE_AGENT_AVEC_RUBRIQUE_ARRETEE",
+          "businessPage": 0,
+          "caller": {
+            "@id": 2,
+            "fm.id": 5585167,
+            "fm.type": "Casino-Model.ActionAppel",
+            "call": 1,
+            "caller": {
+              "@id": 3,
+              "fm.id": 4783103,
+              "fm.type": "Casino-Model-UI-SubEntities.Link",
+              "name": "llbAgentsAvecRubriquesArretes4783103"
+            }
+          }
+        },
+        "widgets": {
+          "@id": 4,
+          "fm.id": 5037671,
+          "fm.type": "Casino-Model-UI-SubEntities.Panel",
+          "name": "ftMain5037671",
+          "widgetContainer": 0,
+          "attributes": {
+            "@id": 5,
+            "fm.id": 5609579,
+            "fm.type": "Casino-Model-UI-SubEntities.Width",
+            "name": "width",
+            "attributeValue": "100%",
+            "widget": 4
+          },
+          "layout": {
+            "@id": 6,
+            "fm.id": 5037672,
+            "fm.type": "Casino-Model-Layout.GridLayout",
+            "cell": {
+              "@id": 8,
+              "fm.id": 5445112,
+              "fm.type": "Casino-Model-Layout.Cell",
+              "name": "widget5445112"
+            },
+            "container": 4
+          }
+        }
+      },
+      {
+        "@id": 9,
+        "fm.id": 5585167,
+        "fm.type": "Casino-Model.ActionAppel",
+        "call": 1,
+        "caller": 3
+      }
+    ]
   },
   {
     "path": "/moose/v1/model/<modelID>/entity/<entityId>",
