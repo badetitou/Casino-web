@@ -37,6 +37,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { ApiGroupComponent } from './api/api-group/api-group.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { ApiComponent } from './api/api.component';
+import { InspectorComponent } from './model-home/inspector/inspector.component';
+import { InspectorCardComponent } from './model-home/inspector/inspector-card/inspector-card.component';
 
 export function markedOptionsFactory(): MarkedOptions {
   const renderer = new MarkedRenderer();
@@ -69,7 +71,9 @@ export function markedOptionsFactory(): MarkedOptions {
     AttributeViewerComponent,
     ApiElementComponent,
     ApiGroupComponent,
-    ApiComponent
+    ApiComponent,
+    InspectorComponent,
+    InspectorCardComponent
   ],
   imports: [
     BrowserModule,

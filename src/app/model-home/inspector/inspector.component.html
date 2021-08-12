@@ -1,0 +1,14 @@
+<div class="scroll-container">
+    <div class="content">
+        <mat-card>
+            <mat-card-content>
+                <mat-list>
+                    <mat-list-item *ngFor="let nav of navigations">
+                        <button mat-button (click)='selectGroup(nav)'>{{ nav.name }}</button>
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <csn-inspector-card *ngFor="let entity of cards" class="content" [entity]='entity'></csn-inspector-card>
+</div>
