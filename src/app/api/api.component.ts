@@ -11,9 +11,9 @@ import { ToolbarService } from '../toolbar.service';
 })
 export class ApiComponent implements OnInit {
 
-  protected apiMooseModels = APIMooseModelsJSON;
-  protected apiMooseModel = APIMooseModelJSON;
-  protected apiCasinoModel = APICasinoModelJSON;
+  apiMooseModels = APIMooseModelsJSON;
+  apiMooseModel = APIMooseModelJSON;
+  apiCasinoModel = APICasinoModelJSON;
 
   constructor(
     private toolbarService: ToolbarService,

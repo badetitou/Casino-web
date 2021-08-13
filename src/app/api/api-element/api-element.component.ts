@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ApiElementComponent implements OnInit {
 
   @Input()
-  protected api;
+  public api;
 
   displayedColumns: string[] = ['name', 'required', 'type', 'description'];
 

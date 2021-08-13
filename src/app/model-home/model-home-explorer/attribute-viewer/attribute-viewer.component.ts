@@ -14,7 +14,7 @@ export class AttributeViewerComponent implements OnChanges  {
   public model: any;
 
   displayedColumns: string[] = ['key', 'value'];
-  protected attributes = [];
+  attributes = [];
 
   constructor(
     private csnModelService: CSNModelService,

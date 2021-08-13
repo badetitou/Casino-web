@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { title } from 'process';
-import { Observable, Subject } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 export class MenuItem {
   title: string;

@@ -10,7 +10,7 @@ import { ToolbarService } from '../toolbar.service';
 })
 export class ModelHomeComponent implements OnInit {
 
-  protected model;
+  public model;
   state$: any;
 
   constructor(

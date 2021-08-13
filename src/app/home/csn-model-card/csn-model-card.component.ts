@@ -48,7 +48,7 @@ export class CsnModelCardComponent implements OnInit {
     });
   }
 
-  protected navigateToModel() {
+  navigateToModel() {
     this.router.navigate(['/model/', this.model.id], { state: { id: this.model.id, name: this.model.name } });
   }
 

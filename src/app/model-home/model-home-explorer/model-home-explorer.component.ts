@@ -20,7 +20,7 @@ export class ModelHomeExplorerComponent implements OnInit {
   ngOnInit() {
   }
 
-  protected inspectItem(event) {
+  public inspectItem(event) {
     console.log('change selectedEntity');
     this.selectedEntity = event;
   }

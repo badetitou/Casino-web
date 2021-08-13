@@ -11,7 +11,7 @@ import { ToolbarService } from './toolbar.service';
 })
 export class AppComponent {
   title = 'casino-web';
-  protected activeMenuItem$;
+  activeMenuItem$;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(

@@ -45,7 +45,7 @@ export class TreeExplorerComponent implements OnInit {
     });
   }
 
-  protected selectItem(item: any) {
+  public selectItem(item: any) {
     this.itemSelected.emit(item);
   }
 

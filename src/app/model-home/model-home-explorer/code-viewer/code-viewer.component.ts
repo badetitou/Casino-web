@@ -15,8 +15,8 @@ export class CodeViewerComponent implements OnInit, OnChanges {
   @Input()
   public model: any;
 
-  protected inFile = '';
-  protected sourceCode = '';
+  public inFile = '';
+  public sourceCode = '';
 
   constructor(
     private csnModelService: CSNModelService,

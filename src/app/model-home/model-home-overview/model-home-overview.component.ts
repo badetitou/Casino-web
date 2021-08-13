@@ -11,7 +11,7 @@ export class ModelHomeOverviewComponent implements OnChanges {
   @Input()
   public model;
 
-  protected modelSummary = {
+  public modelSummary = {
     numberOfWidgets: 'wait',
     numberOfBusinessEntities: 'wait',
     numberOfServicesEntities: 'wait',

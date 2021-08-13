@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ApiGroupComponent implements OnInit {
 
   @Input()
-  protected apiList: any;
+  public apiList: any;
 
   constructor() { }
 
