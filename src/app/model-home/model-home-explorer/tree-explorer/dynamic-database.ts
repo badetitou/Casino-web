@@ -1,6 +1,7 @@
 import { Inject, Optional } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { CSNModelService } from 'src/app/services/csn-model.service';
 import { ModelService } from 'src/app/services/model.service';
 import { DynamicFlatNode } from './dynamic-flat-node';
 
@@ -9,11 +10,11 @@ export class DynamicDatabase {
   rootLevelNodes = [];
 
   modelId: number;
-  modelService: ModelService;
-
+  
   constructor(
     modelId: number,
-    modelService: ModelService
+    private modelService: ModelService,
+    private casinoService: CSNModelService
   ) {
     this.modelService = modelService;
     this.modelId = modelId;
@@ -28,7 +29,7 @@ export class DynamicDatabase {
 
 
   getChildren(node: any): Observable<any> {
-    return this.modelService.childrenOf(this.modelId, node['fm.id']);
+    return this.casinoService.subWidgets(this.modelId, node['fm.id']);
   }
 
   isExpandable(node: any): Observable<boolean> {

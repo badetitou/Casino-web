@@ -5,6 +5,7 @@ import { DynamicFlatNode } from './dynamic-flat-node';
 import { DynamicDataSource } from './dynamic-datasource';
 import { DynamicDatabase } from './dynamic-database';
 import { ModelService } from 'src/app/services/model.service';
+import { CSNModelService } from 'src/app/services/csn-model.service';
 
 @Component({
   selector: 'csn-tree-explorer',
@@ -29,12 +30,12 @@ export class TreeExplorerComponent implements OnInit {
 
   hasChild = (_: number, _nodeData: DynamicFlatNode) => _nodeData.expandable;
 
-  constructor(private modelService: ModelService) {
+  constructor(private modelService: ModelService, private casinoService: CSNModelService) {
    }
 
   ngOnInit() {
     console.log(this.model);
-    const database = new DynamicDatabase(this.model.id, this.modelService);
+    const database = new DynamicDatabase(this.model.id, this.modelService, this.casinoService);
     this.treeControl = new FlatTreeControl<DynamicFlatNode>(this.getLevel, this.isExpandable);
     this.dataSource = new DynamicDataSource(this.treeControl, database);
 
