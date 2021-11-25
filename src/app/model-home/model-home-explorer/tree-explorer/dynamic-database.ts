@@ -13,8 +13,7 @@ export class DynamicDatabase {
   
   constructor(
     modelId: number,
-    private modelService: ModelService,
-    private casinoService: CSNModelService
+    private modelService: ModelService
   ) {
     this.modelService = modelService;
     this.modelId = modelId;
@@ -22,14 +21,14 @@ export class DynamicDatabase {
 
   /** Initial data from database */
   initialData(): Observable<DynamicFlatNode[]> {
-    return this.modelService.subTypesOf(this.modelId, 'CSNPage').pipe(map((pages) => {
-      return pages.data.map(page => new DynamicFlatNode(page, 0, true));
+    return this.modelService.rootEntities(this.modelId).pipe(map((entities) => {
+      return entities.map(entity => new DynamicFlatNode(entity, 0, true));
     }));
   }
 
 
   getChildren(node: any): Observable<any> {
-    return this.casinoService.subWidgets(this.modelId, node['fm.id']);
+    return this.modelService.childrenOf(this.modelId, node['fm.id']);
   }
 
   isExpandable(node: any): Observable<boolean> {

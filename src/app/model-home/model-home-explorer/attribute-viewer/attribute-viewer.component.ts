@@ -1,5 +1,5 @@
 import { AfterViewInit, ChangeDetectorRef, Component, Input, OnChanges } from '@angular/core';
-import { CSNModelService } from 'src/app/services/csn-model.service';
+import { ModelService } from 'src/app/services/model.service';
 
 @Component({
   selector: 'csn-attribute-viewer',
@@ -17,7 +17,7 @@ export class AttributeViewerComponent implements OnChanges  {
   attributes = [];
 
   constructor(
-    private csnModelService: CSNModelService,
+    private modelService: ModelService,
     private ref: ChangeDetectorRef
   ) { }
 
@@ -26,7 +26,7 @@ export class AttributeViewerComponent implements OnChanges  {
   }
 
   private updateAttributes() {
-    this.csnModelService.attributes(this.model.id, this.casinoEntity['fm.id']).subscribe({
+    this.modelService.attributesOf(this.model.id, this.casinoEntity['fm.id']).subscribe({
       next: (values) => this.attributes = values,
       error: (err) => {
         console.log(err);

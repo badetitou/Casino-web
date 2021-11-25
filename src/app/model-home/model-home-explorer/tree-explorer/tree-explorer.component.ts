@@ -30,12 +30,12 @@ export class TreeExplorerComponent implements OnInit {
 
   hasChild = (_: number, _nodeData: DynamicFlatNode) => _nodeData.expandable;
 
-  constructor(private modelService: ModelService, private casinoService: CSNModelService) {
+  constructor(private modelService: ModelService) {
    }
 
   ngOnInit() {
     console.log(this.model);
-    const database = new DynamicDatabase(this.model.id, this.modelService, this.casinoService);
+    const database = new DynamicDatabase(this.model.id, this.modelService);
     this.treeControl = new FlatTreeControl<DynamicFlatNode>(this.getLevel, this.isExpandable);
     this.dataSource = new DynamicDataSource(this.treeControl, database);
 

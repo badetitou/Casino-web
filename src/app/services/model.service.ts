@@ -28,8 +28,20 @@ export class ModelService {
     return this.http.get<any>('/moose/v1/model/' + modelId + '/entity/' + entityId + '/children').pipe(first());
   }
 
+  public attributesOf(modelId: number, entityId: string): Observable<any> {
+    return this.http.get<any>('/moose/v1/model/' + modelId + '/entity/' + entityId + '/attributes').pipe(first());
+  }
+
+  public sourceCode(modelId: number, entityId: string): Observable<any> {
+    return this.http.get<any>('/moose/v1/model/' + modelId + '/entity/' + entityId + '/sourceCode').pipe(first());
+  }
+
   public summary(modelId: number): Observable<any> {
     return this.http.get<any>('/moose/v1/model/' + modelId + '/summary').pipe(first());
+  }
+
+  public rootEntities(modelId: number): Observable<any> {
+    return this.http.get<any>('/moose/v1/model/' + modelId + '/rootEntities').pipe(first());
   }
 
 }

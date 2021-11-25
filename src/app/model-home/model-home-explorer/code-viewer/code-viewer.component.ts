@@ -2,6 +2,7 @@ import { ChangeDetectorRef } from '@angular/core';
 import { OnChanges } from '@angular/core';
 import { Component, Input, OnInit } from '@angular/core';
 import { CSNModelService } from 'src/app/services/csn-model.service';
+import { ModelService } from 'src/app/services/model.service';
 
 @Component({
   selector: 'csn-code-viewer',
@@ -19,7 +20,7 @@ export class CodeViewerComponent implements OnInit, OnChanges {
   public sourceCode = '';
 
   constructor(
-    private csnModelService: CSNModelService,
+    private modelService: ModelService,
     private ref: ChangeDetectorRef
   ) { }
 
@@ -31,7 +32,7 @@ export class CodeViewerComponent implements OnInit, OnChanges {
   }
 
   updateSourceCode() {
-    this.csnModelService.source(this.model.id, this.casinoEntity['fm.id']).subscribe({
+    this.modelService.sourceCode(this.model.id, this.casinoEntity['fm.id']).subscribe({
       next: (value) => {
         this.sourceCode = value.body;
         this.inFile = value.file;
