@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { CSNModelService } from 'src/app/services/csn-model.service';
+import { ModelService } from 'src/app/services/model.service';
 
 @Component({
   selector: 'csn-model-home-overview',
@@ -11,21 +12,19 @@ export class ModelHomeOverviewComponent implements OnChanges {
   @Input()
   public model;
 
-  public modelSummary = {
-    numberOfWidgets: 'wait',
-    numberOfBusinessEntities: 'wait',
-    numberOfServicesEntities: 'wait',
-    numberOfActions: 'wait',
-    numberOfAttributes: 'wait',
-    numberOfLayouts: 'wait'
-  };
+  public modelSummary = [
+    {
+      name: 'wait',
+      value: 'wait'
+    }
+  ];
 
   constructor(
-    private csnModelService: CSNModelService
+    private modelService: ModelService
   ) { }
 
   ngOnChanges() {
-    this.csnModelService.summary(this.model.id).subscribe({
+    this.modelService.summary(this.model.id).subscribe({
       next: (summary) => this.modelSummary = summary,
       error: (err) => console.log(err),
       complete: () => console.log('Retrieve summary')

@@ -28,4 +28,8 @@ export class ModelService {
     return this.http.get<any>('/moose/v1/model/' + modelId + '/entity/' + entityId + '/children').pipe(first());
   }
 
+  public summary(modelId: number): Observable<any> {
+    return this.http.get<any>('/moose/v1/model/' + modelId + '/summary').pipe(first());
+  }
+
 }
