@@ -5,10 +5,10 @@
     </mat-card-title>
   </mat-card-header>
   <mat-card-content class="dashboard-card-content">
-    <div>Nombre de pages: {{ this.pages }}</div>
-    <div>Nombre de page métiers: {{ this.pageMetier }}</div>
-    <div>Nombre de widgets: {{ this.widgets }}</div>
-    <div>Nombre de custom widgets: {{ this.customs }}</div>
+    <div *ngIf="this.pages">Nombre de pages: {{ this.pages }}</div>
+    <div *ngIf="this.pageMetier">Nombre de page métiers: {{ this.pageMetier }}</div>
+    <div *ngIf="this.widgets">Nombre de widgets: {{ this.widgets }}</div>
+    <div *ngIf="this.customs">Nombre de custom widgets: {{ this.customs }}</div>
   </mat-card-content>
   <mat-card-actions class="dashboard-card-actions">
     <button mat-button (click)='navigateToModel()'>
