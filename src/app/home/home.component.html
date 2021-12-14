@@ -1,8 +1,11 @@
 <div class="grid-container">
   <h1 class="mat-h1">Dashboard</h1>
+  <button mat-icon-button aria-label="Import new model" (click)="importModel()">
+    <mat-icon>get_app</mat-icon>
+  </button>
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile *ngFor="let model of models | async" [colspan]="1" [rowspan]="1">
-      <csn-model-card [model]=model></csn-model-card>
+      <csn-model-card [model]=model (deleted)='update()'></csn-model-card>
     </mat-grid-tile>
   </mat-grid-list>
 </div>

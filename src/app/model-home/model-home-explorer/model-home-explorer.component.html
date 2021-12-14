@@ -1,24 +1,86 @@
 <mat-grid-list cols="2" rowHeight="2:1" [gutterSize]="'10px'">
   <mat-grid-tile [colspan]="1" [rowspan]="2">
-    <csn-tree-explorer
-      class="container"
-      [model]="this.model"
-      (itemSelected)="inspectItem($event)"
-    ></csn-tree-explorer>
+    <csn-tree-explorer class="container" [model]="this.model" (itemSelected)="inspectItem($event)"></csn-tree-explorer>
   </mat-grid-tile>
-  <mat-grid-tile [colspan]="1" [rowspan]="1">
-    <csn-code-viewer
-      class="container"
-      [casinoEntity]="this.selectedEntity"
-      [model]="this.model"
-    ></csn-code-viewer>
+  <mat-grid-tile [colspan]="1" [rowspan]="2">
+    <div class="container">
+      <mat-accordion multi>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Code Viewer
+            </mat-panel-title>
+            <mat-panel-description>
+              View the code of the selected entity
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <csn-code-viewer [casinoEntity]="this.selectedEntity" [model]="this.model"></csn-code-viewer>
+
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Attribute Viewer
+            </mat-panel-title>
+            <mat-panel-description>
+              View the attributes of the selected entity
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <csn-attribute-viewer [casinoEntity]="this.selectedEntity" [model]="this.model">
+          </csn-attribute-viewer>
+
+        </mat-expansion-panel>
+
+        <mat-expansion-panel *ngIf="this.butterfly.canFollow">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Dependency Butterfly
+            </mat-panel-title>
+            <mat-panel-description>
+
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <csn-dependency-butterfly [dataToShow]="this.butterfly.data">
+          </csn-dependency-butterfly>
+
+        </mat-expansion-panel>
+
+        <mat-expansion-panel *ngIf="this.uml.canFollow">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              UML
+            </mat-panel-title>
+            <mat-panel-description>
+              Show UML Information of the selected elements
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <csn-uml [dataToShow]="this.uml.data">
+          </csn-uml>
+
+        </mat-expansion-panel>
+
+        <mat-expansion-panel *ngIf="this.angularViewer.canFollow">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Angular Viewer
+            </mat-panel-title>
+            <mat-panel-description>
+              Show Angular Viewer
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <csn-angular-viewer [sourceCode]="this.angularViewer.data">
+          </csn-angular-viewer>
+
+        </mat-expansion-panel>
+
+      </mat-accordion>
+    </div>
   </mat-grid-tile>
-  <mat-grid-tile [colspan]="1" [rowspan]="1">
-    <csn-attribute-viewer
-      class="container"
-      [casinoEntity]="this.selectedEntity"
-      [model]="this.model"
-    >
-    </csn-attribute-viewer>
-  </mat-grid-tile>
+
 </mat-grid-list>

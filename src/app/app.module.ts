@@ -30,6 +30,7 @@ import { MatTreeModule } from '@angular/material/tree';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { TreeExplorerComponent } from './model-home/model-home-explorer/tree-explorer/tree-explorer.component';
 import { CodeViewerComponent } from './model-home/model-home-explorer/code-viewer/code-viewer.component';
+import { DependencyButterflyComponent } from './model-home/model-home-explorer/dependency-butterfly/dependency-butterfly.component';
 import { AttributeViewerComponent } from './model-home/model-home-explorer/attribute-viewer/attribute-viewer.component';
 import { MatTableModule } from '@angular/material/table';
 import { ApiElementComponent } from './api/api-element/api-element.component';
@@ -39,6 +40,13 @@ import { MatChipsModule } from '@angular/material/chips';
 import { ApiComponent } from './api/api.component';
 import { InspectorComponent } from './model-home/inspector/inspector.component';
 import { InspectorCardComponent } from './model-home/inspector/inspector-card/inspector-card.component';
+import { UmlComponent } from './model-home/model-home-explorer/uml/uml.component';
+import { AngularViewerComponent } from './model-home/model-home-explorer/angular-viewer/angular-viewer.component';
+import { DialogImportComponent } from './home/dialog-import/dialog-import.component';
+import { MatDialogModule } from '@angular/material/dialog'; 
+import { MatFormFieldModule } from '@angular/material/form-field'; 
+import { FormsModule } from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; 
 
 export function markedOptionsFactory(): MarkedOptions {
   const renderer = new MarkedRenderer();
@@ -64,25 +72,32 @@ export function markedOptionsFactory(): MarkedOptions {
     CsnModelCardComponent,
     AboutComponent,
     ModelHomeComponent,
+    DialogImportComponent,
     ModelHomeOverviewComponent,
     ModelHomeExplorerComponent,
     TreeExplorerComponent,
     CodeViewerComponent,
     AttributeViewerComponent,
+    DependencyButterflyComponent,
     ApiElementComponent,
     ApiGroupComponent,
     ApiComponent,
     InspectorComponent,
-    InspectorCardComponent
+    InspectorCardComponent,
+    UmlComponent,
+    AngularViewerComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    MatProgressSpinnerModule,
     BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule,
     MatTabsModule,
+    MatFormFieldModule,
     MatSelectModule,
     MatRadioModule,
     MatCardModule,
@@ -98,6 +113,7 @@ export function markedOptionsFactory(): MarkedOptions {
     MatTableModule,
     MatExpansionModule,
     MatChipsModule,
+    MatDialogModule,
 
     HttpClientModule,
     MarkdownModule.forRoot({

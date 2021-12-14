@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModelService } from '../../services/model.service';
+import { ModelsService } from '../services/models.service';
 
 @Component({
   selector: 'csn-model-card',
@@ -12,6 +13,9 @@ export class CsnModelCardComponent implements OnInit {
   @Input()
   model: any;
 
+  @Output()
+  deleted = new EventEmitter();
+
   pages = 0;
   pageMetier = 0;
   widgets = 0;
@@ -19,6 +23,7 @@ export class CsnModelCardComponent implements OnInit {
 
   constructor(
     private modelService: ModelService,
+    private modelsService: ModelsService,
     private router: Router) {
   }
 
@@ -50,6 +55,12 @@ export class CsnModelCardComponent implements OnInit {
 
   navigateToModel() {
     this.router.navigate(['/model/', this.model.id], { state: { id: this.model.id, name: this.model.name } });
+  }
+
+  deleteModel() {
+    this.modelsService.delete(this.model.id).subscribe({
+      complete: () =>  this.deleted.emit(null)
+    });
   }
 
 }

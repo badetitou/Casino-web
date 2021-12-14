@@ -11,6 +11,9 @@
     <div *ngIf="this.customs">Nombre de custom widgets: {{ this.customs }}</div>
   </mat-card-content>
   <mat-card-actions class="dashboard-card-actions">
+    <button mat-button (click)='deleteModel()'>
+      DELETE
+    </button>
     <button mat-button (click)='navigateToModel()'>
       OPEN
     </button>

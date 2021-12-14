@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Import Model</h1>
+<div mat-dialog-content>
+  <mat-spinner *ngIf="importing"></mat-spinner>
+  <div *ngIf="!importing">
+    <mat-form-field appearance="fill">
+      <mat-label>GitHub repository URL</mat-label>
+      <input matInput [(ngModel)]="url">
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions *ngIf="!importing">
+  <button mat-button (click)="import()">Import</button>
+  <button mat-button mat-dialog-close>Close</button>
+</div>

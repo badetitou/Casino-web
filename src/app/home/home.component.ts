@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { map } from 'rxjs/operators';
-import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { ModelsService } from './services/models.service';
 import { ToolbarService } from '../toolbar.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogImportComponent } from './dialog-import/dialog-import.component';
 
 @Component({
   selector: 'csn-home',
@@ -16,6 +16,8 @@ export class HomeComponent {
   constructor(
     private modelsService: ModelsService,
     private toolbarService: ToolbarService,
+    public dialog: MatDialog,
+    private ref: ChangeDetectorRef
   ) {
     this.toolbarService.changeTitle('Home');
     this.models = this.modelsService.models();
@@ -26,4 +28,22 @@ export class HomeComponent {
     // });
 
   }
+
+  importModel() {
+    const dialogRef = this.dialog.open(DialogImportComponent, {
+      width: '250px',
+      data: {},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.models = this.modelsService.models();
+      this.ref.detectChanges()
+    });
+  }
+
+  update() {
+    this.models = this.modelsService.models();
+    this.ref.detectChanges()
+  }
+
 }

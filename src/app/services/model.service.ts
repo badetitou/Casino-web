@@ -44,4 +44,8 @@ export class ModelService {
     return this.http.get<any>('/moose/v1/model/' + modelId + '/rootEntities').pipe(first());
   }
 
+  public extensionsFor(modelId: number, entityId: string): Observable<[{name: string, canFollow: boolean, data: string}]> {
+    return this.http.get<any>('/moose/v1/model/' + modelId + '/entity/' + entityId + '/extensions').pipe(first());
+  }
+
 }
