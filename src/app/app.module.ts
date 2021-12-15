@@ -46,7 +46,8 @@ import { DialogImportComponent } from './home/dialog-import/dialog-import.compon
 import { MatDialogModule } from '@angular/material/dialog'; 
 import { MatFormFieldModule } from '@angular/material/form-field'; 
 import { FormsModule } from '@angular/forms';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; 
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NavigationComponent } from './model-home/inspector/navigation/navigation.component'; 
 
 export function markedOptionsFactory(): MarkedOptions {
   const renderer = new MarkedRenderer();
@@ -86,6 +87,7 @@ export function markedOptionsFactory(): MarkedOptions {
     InspectorCardComponent,
     UmlComponent,
     AngularViewerComponent,
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,

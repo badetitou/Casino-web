@@ -8,10 +8,24 @@ import { CSNMetaService } from 'src/app/services/meta.service';
 })
 export class InspectorComponent implements OnChanges {
 
+  /**
+   *   Groupe => {[ nom -> id ]}
+   *   Element => {[ nom -> property name (depuis id) ]}
+   * 
+   *   navigations => 
+   * {
+   *  type: 'group' or 'entity'
+   *  data: []
+   * }
+   * 
+   * 2 services -> navigation from Group (by id) or from entity (by executing the property)
+   * 
+   */
+
   @Input()
   public model;
 
-  navigations = [];
+  listOfNavigations = [];
   cards = [];
   
   constructor(private csnMetaService: CSNMetaService,
@@ -20,10 +34,11 @@ export class InspectorComponent implements OnChanges {
 
   ngOnChanges() {
     this.csnMetaService.navigations(this.model.id).subscribe({
-      next: (value) => {
-        this.navigations = value;
+      next: (value: [{name, implementationName}]) => {
+        console.log(value)
+        this.listOfNavigations = value;
       },
-      error: (err) => console.log(err),
+      error: (err) => console.log('Error: ', err),
       complete: () => this.cdr.detectChanges()
     })
   }
@@ -31,6 +46,10 @@ export class InspectorComponent implements OnChanges {
   selectGroup(aType: string) {
     this.cards = []
     this.cards.push(aType)
+  }
+
+  selectEntity(anEntity: any) {
+    this.cards.push('new group ' + anEntity)
   }
 
 }

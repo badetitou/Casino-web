@@ -6,7 +6,7 @@ import { ModelService } from 'src/app/services/model.service';
   templateUrl: './attribute-viewer.component.html',
   styleUrls: ['./attribute-viewer.component.scss']
 })
-export class AttributeViewerComponent implements OnChanges  {
+export class AttributeViewerComponent implements OnChanges {
 
   @Input()
   public casinoEntity: any;
@@ -26,15 +26,19 @@ export class AttributeViewerComponent implements OnChanges  {
   }
 
   private updateAttributes() {
-    this.modelService.attributesOf(this.model.id, this.casinoEntity['fm.id']).subscribe({
-      next: (values) => this.attributes = values,
-      error: (err) => {
-        console.log(err);
-        this.attributes = [];
-      },
-      complete: () => console.log('Load attributes complete')
-    });
-    this.ref.detectChanges();
+    if (this.casinoEntity === undefined ) {
+      this.attributes = [];
+    } else {
+      this.modelService.attributesOf(this.model.id, this.casinoEntity['fm.id']).subscribe({
+        next: (values) => this.attributes = values,
+        error: (err) => {
+          console.log(err);
+          this.attributes = [];
+        },
+        complete: () => console.log('Load attributes complete')
+      });
+      this.ref.detectChanges();
+    }
   }
 
 }

@@ -32,14 +32,19 @@ export class CodeViewerComponent implements OnInit, OnChanges {
   }
 
   updateSourceCode() {
-    this.modelService.sourceCode(this.model.id, this.casinoEntity['fm.id']).subscribe({
-      next: (value) => {
-        this.sourceCode = value.body;
-        this.inFile = value.file;
-      },
-      error: (err) => console.log(err),
-      complete: () => this.ref.detectChanges()
-    });
+    if (this.casinoEntity === undefined) {
+      this.sourceCode = '';
+      this.inFile = 'Select an entity with source anchor';
+    } else {
+      this.modelService.sourceCode(this.model.id, this.casinoEntity['fm.id']).subscribe({
+        next: (value) => {
+          this.sourceCode = value.body;
+          this.inFile = value.file;
+        },
+        error: (err) => console.log(err),
+        complete: () => this.ref.detectChanges()
+      });
+    }
   }
 
 }
